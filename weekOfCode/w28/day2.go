@@ -19,11 +19,13 @@ func TheGreatXOR() {
 
 		var answer int
 		if scanner.Scan() {
+			var x int64
 			input := scanner.Text()
-			x, _ := strconv.Atoi(input)
-			for j := 0; j < x; j++ {
+			// x, err = strconv.Atoi(input)
+			x, _ = strconv.ParseInt(input, 10, 64)
+			for j := 0; int64(j) < x; j++ {
 				// check XOR of j and x is > x; If true increment answer.
-				bitwiseCalc := j ^ x
+				bitwiseCalc := int64(j) ^ x
 				if bitwiseCalc > x {
 					answer++
 				}
